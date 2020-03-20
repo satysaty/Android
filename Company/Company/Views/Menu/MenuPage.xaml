@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.MenuPage"
+             Title="Menu"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <StackLayout>
+        <Image Source="menu_logo.png" 
+               Aspect="AspectFill" 
+               HeightRequest="240" 
+               BackgroundColor="#2f669a"/>
+        <ListView x:Name="ListViewMenu"
+                  IsPullToRefreshEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="12" 
+                                     Orientation="Horizontal">
+                            <Image Source="{Binding Icon}" 
+                                   WidthRequest="50" 
+                                   HeightRequest="50"/>
+                            <Label Text="{Binding Title}"
+                                   Margin="7,0,0,0"
+                                   FontSize="20" 
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="{StaticResource MRegular}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Margin="0,0,0,30"
+                             VerticalOptions="EndAndExpand">
+            <Label Text="Текущий город:" 
+                           FontSize="17" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" />
+            <Button x:Name="ChangeCity"
+                            Margin="10,0,10,0"
+                            Clicked="Button_Clicked"
+                            Style="{StaticResource BlueButton}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.MenuViews.ContactPage"
+             BackgroundColor="#303030"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Телефоны:"
+                   Margin="40,10,0,0"
+                   TextColor="#c0c0c0"
+                   FontSize="25"/>
+            <StackLayout Margin="40,20,20,0"
+                         Orientation="Horizontal">
+                <Image Source="mts.png"
+                       WidthRequest="50" 
+                       HeightRequest="50"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+                
+                <Label Margin="10,0,20,0"
+                       Text="+38 (066) 179-83-52"
+                       TextColor="White"
+                       HorizontalOptions="End"
+                       VerticalOptions="CenterAndExpand"
+                       FontFamily="{StaticResource MBold}"
+                       FontSize="24"/>
+            </StackLayout>
+            
+            <Label Text="Соц-сети:"
+                   Margin="40,20,0,0"
+                   TextColor="#c0c0c0"
+                   FontSize="25"/>
+            
+            <StackLayout Margin="40,20,20,5"
+                         BackgroundColor="Accent"
+                         Orientation="Horizontal">
+                <Image Source="phoenix.png"
+                       WidthRequest="50" 
+                       HeightRequest="50"
+                       BackgroundColor="Accent"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                <Label Margin="10,0,20,0"
+                       Text="+38 (066) 179-83-52"
+                       TextColor="White"
+                       HorizontalOptions="End"
+                       VerticalOptions="CenterAndExpand"
+                       FontFamily="{StaticResource MBold}"
+                       FontSize="24"/>
+            </StackLayout>
+            <StackLayout Margin="40,0,20,0"
+                         BackgroundColor="Accent"
+                         Orientation="Horizontal">
+                <Image Source="phoenix.png"
+                       BackgroundColor="Accent"
+                       WidthRequest="50" 
+                       HeightRequest="50"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                <Label Margin="10,0,20,0"
+                       Text="+38 (066) 179-83-52"
+                       TextColor="White"
+                       HorizontalOptions="End"
+                       VerticalOptions="CenterAndExpand"
+                       FontFamily="{StaticResource MBold}"
+                       FontSize="24"/>
+            </StackLayout>
+            <StackLayout Margin="40,0,20,0"
+                         BackgroundColor="Accent"
+                         Orientation="Horizontal">
+                <Image Source="phoenix.png"
+                       BackgroundColor="Accent"
+                       WidthRequest="50" 
+                       HeightRequest="50"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                <Label Margin="10,0,20,0"
+                       Text="+38 (066) 179-83-52"
+                       TextColor="White"
+                       HorizontalOptions="End"
+                       VerticalOptions="CenterAndExpand"
+                       FontFamily="{StaticResource MBold}"
+                       FontSize="24"/>
+            </StackLayout>
+
+            <Label Text="Потом допилим"
+                   TextColor="White"
+                   HorizontalOptions="Center"></Label>
+            <Button Text="Позвоните мне"
+                    Margin="10,10,10,30"
+                    Style="{StaticResource BlueButton}"
+                    VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

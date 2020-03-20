@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.WorkPage"   
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{Binding Path=Category.Icon}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <StackLayout IsVisible="{Binding ErrorVisible}" PropertyChanged="ErrorVisible_Changed">
+            <Frame x:Name="ErrorFrame" Style="{StaticResource FrameError}">
+                <Label Style="{StaticResource LabelError}"/>
+            </Frame>
+            <Button x:Name="ButtonRetry" Clicked="ButtonRetry_Clicked" 
+                        Style="{StaticResource ButtonError}"/>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding ErrorItemsVisible}" PropertyChanged="ErrorItemsVisible_Changed">
+            <Frame x:Name="ErrorItems" Style="{StaticResource FrameError}">
+                <Label Text="Нет элементов в категории" Style="{StaticResource LabelError}"/>
+            </Frame>
+        </StackLayout>
+        <ListView x:Name="WorkListView"
+                  ItemsSource="{Binding Works}"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  ItemSelected="OnItemSelected"
+                  CachingStrategy="RecycleElementAndDataTemplate">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column ="0" HorizontalOptions="StartAndExpand">
+                                <Label  Text="{Binding Name}" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                            <Label Grid.Column="1" HorizontalTextAlignment="End" VerticalOptions="Center"> 
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Price}"></Span>
+                                        <Span Text=" "></Span>
+                                        <Span Text="{Binding BindingContext.CurrentCity.Currency, Source={x:Reference WorkListView}}"></Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Ресурсы-->            
+            <x:String x:Key="MBold">Montserrat-ExtraBold.ttf#ExtraBold</x:String>
+            <x:String x:Key="ReleaseServer">/</x:String>
+            <x:Boolean x:Key="Debug">False</x:Boolean>
+            <x:String x:Key="DebugServer"></x:String>
+            <x:String x:Key="MRegular">Montserrat-Regular.ttf#Regular</x:String>
+            <Color x:Key="NavigationPrimary">#2f669a</Color>
+            <Color x:Key="BackgroundColor">White</Color>
+            <!--Стили-->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MRegular}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style TargetType="Span">
+                <Setter Property="FontFamily" Value="{StaticResource MRegular}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource MRegular}"/>
+            </Style>
+            <Style x:Key="SpanBold" TargetType="Span">
+                <Setter Property="FontFamily" Value="{StaticResource MBold}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="Black"/>
+            </Style>
+            <Style TargetType="ListView">
+                <Setter Property="IsPullToRefreshEnabled" Value="True"/>
+                <Setter Property="HasUnevenRows" Value="True"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="IconImg" TargetType="Image">
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+            
+            
+            <Style x:Key="BlueButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="FontFamily" Value="{StaticResource MBold}"/>
+                <Setter Property="CornerRadius" Value="30"/>
+                <Setter Property="TextColor" Value="White"/>
+
+            </Style>
+            
+            <!--Error-->
+            <Style x:Key="LabelError" TargetType="Label">
+                <Setter Property="Text" Value="Произошла ошибка"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="FrameError" TargetType="Frame">
+                <Setter Property="Margin" Value="20,20,20,0"/>
+                <Setter Property="CornerRadius" Value="30"/>
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="BackgroundColor" Value="DarkRed"/>
+            </Style>
+
+            <Style x:Key="ButtonError" TargetType="Button">
+                <Setter Property="Text" Value="Повторить"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <!--Error-->
+            <!--masterpage-->
+            <Style x:Key="MasterText" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MRegular}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            
+            <!--masterpage-->
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

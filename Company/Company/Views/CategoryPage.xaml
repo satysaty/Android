@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.CategoryPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             x:Name="Category">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{Binding Path=MainCategory.Icon}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <StackLayout IsVisible="{Binding ErrorVisible}"
+                     PropertyChanged="ErrorVisible_Changed">
+            <Frame x:Name="ErrorFrame" Style="{StaticResource FrameError}">
+                <Label Style="{StaticResource LabelError}"/>
+            </Frame>
+            <Button x:Name="ButtonRetry" Clicked="ButtonRetry_Clicked" 
+                        Style="{StaticResource ButtonError}"/>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding ErrorItemsVisible}" PropertyChanged="ErrorItemsVisible_Changed">
+            <Frame x:Name="ErrorItems" Style="{StaticResource FrameError}">
+                <Label Text="Нет элементов в категории" Style="{StaticResource LabelError}"/>
+            </Frame>
+        </StackLayout>
+        <ListView x:Name="CategoryListView"
+                  ItemsSource="{Binding Categories}"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  ItemSelected="OnItemSelected"
+                  CachingStrategy="RecycleElementAndDataTemplate">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Image Margin="20,0,20,0"
+                                   Style="{StaticResource IconImg}" 
+                                   Source="{Binding Icon}"/>
+                            <Label Text="{Binding Name}" LineBreakMode="WordWrap" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

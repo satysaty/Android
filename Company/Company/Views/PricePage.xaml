@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.PricePage"
+             Title="Работа"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ScrollView>
+        <StackLayout>
+            <Frame Margin="20,20,20,0"
+                   Padding="5"
+                   CornerRadius="10"
+                   BackgroundColor="Yellow">
+                <Label Text="{Binding Path=Work.Name}" FontFamily="{StaticResource MBold}" HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Label Margin="30,10,30,0"
+                   IsVisible="{Binding Path=Work.IsDescription}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding Path=Work.Description}"
+                                  FontSize="15"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <Frame Margin="30,10,0,0"
+                   Padding="4"
+                   CornerRadius="7"
+                   BackgroundColor="LightGray" HorizontalOptions="Start">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="dogovor.png" WidthRequest="19" HeightRequest="19"/>
+                    <Label Text="Договор зафиксирует цену" FontSize="13" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Margin="30,5,0,10"
+                   Padding="4"
+                   CornerRadius="7"
+                   BackgroundColor="LightGray" HorizontalOptions="Start">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="guaranty.png" WidthRequest="19" HeightRequest="19"/>
+                    <Label Text="Гарантия до 6 месяцев" FontSize="13" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="0" 
+                   BackgroundColor="LightGreen"
+                   Margin="0,10,0,10">
+                <Label Padding="25,5,25,5" 
+                       Text="Минимальная стоимость 300 грн. Далее мы предложим вам, что еще полезного добавить в работы" 
+                       FontSize="12"/>
+            </Frame>
+            <Label HorizontalTextAlignment="End"
+                   Margin="0,20,30,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding Path=Work.Price}" FontAttributes="Bold" FontSize="32"/>
+                            <Span Text=" "/>
+                            <Span Text="{Binding Path=CurrentCity.Currency}" FontSize="27"/>
+                            <Span Text="{Binding Path=Work.Piece}" FontSize="27"/>
+
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <StackLayout IsVisible="{Binding ErrorVisible}"
+                         PropertyChanged="Error_PropertyChanged">
+                <Frame x:Name="Error" Style="{StaticResource FrameError}">
+                    <Label Style="{StaticResource LabelError}"/>
+                </Frame>
+                <Button x:Name="ButtonRetry" 
+                        Text="Повторить" 
+                        Clicked="ButtonRetry_Clicked"
+                        HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <ActivityIndicator x:Name="ActivityIndicator"    
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               PropertyChanged="ActivityIndicator_PropertyChanged"
+                               VerticalOptions="CenterAndExpand"/>
+            <StackLayout x:Name="ButtonContent" 
+                         IsVisible="{Binding Content}">
+                <Button Clicked="Button_Clicked_1"  
+                        Margin="10,0,10,0"
+                        CornerRadius="30"
+                        IsVisible="{Binding AdWorkButton}"
+                        Text="Рассчитать полную стоимость"
+                        BackgroundColor="LightGreen"
+                        TextColor="Black" />
+
+                <Button Clicked="Button_Clicked" 
+                        Margin="10,0,10,10" 
+                        CornerRadius="30"
+                        Text="Быстрый заказ"
+                        Style="{StaticResource BlueButton}"/>
+            </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

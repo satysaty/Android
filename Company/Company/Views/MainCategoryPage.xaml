@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.MainCategoryPage"
+             Title="{Binding Title}"
+             x:Name="MainCategory"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <StackLayout>
+        <ListView x:Name="MainCategoryListView"
+                  ItemsSource="{Binding Items}"
+                  RefreshCommand="{Binding LoadItemsCommand}"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  ItemSelected="OnItemSelected"
+                  CachingStrategy="RecycleElementAndDataTemplate">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Image Margin="20,0,20,0"
+                                   Style="{StaticResource IconImg}"
+                                   Source="{Binding Icon}"/>
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black"
+                                   FontSize="18"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

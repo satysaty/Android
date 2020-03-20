@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.MenuViews.HelpPage"
+             BackgroundColor="{StaticResource NavigationPrimary}"
+             Title="Как пользоваться серывависом">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame x:Name="Frame1" 
+                   Margin="20,5,20,0"
+                   CornerRadius="50"
+                   BackgroundColor="LightGreen">
+                <StackLayout>
+                    <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span TextColor="White"
+                                      Text="Выберите подходящую категорию"
+                                      FontSize="23"
+                                      FontFamily="{StaticResource MRegular}"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <Frame x:Name="Frame2" 
+                   Margin="20,10,20,0"
+                   CornerRadius="50"
+                   BackgroundColor="CadetBlue">
+                <StackLayout>
+                    <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span TextColor="White"
+                                      Text="Выберите работу которую необходимо выполнить мастеру"
+                                      FontSize="23"
+                                      FontFamily="{StaticResource MRegular}"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <Frame x:Name="Frame3" 
+                   Margin="20,10,20,0"
+                   CornerRadius="50"
+                   BackgroundColor="DarkGray">
+                <StackLayout>
+                    <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span TextColor="White"
+                                      Text="Укажите контактные данные"
+                                      FontSize="23"
+                                      FontFamily="{StaticResource MRegular}"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <Frame x:Name="Frame4" 
+                   Margin="20,10,20,10"
+                   CornerRadius="50"
+                   BackgroundColor="SlateGray">
+                <StackLayout>
+                    <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span TextColor="White"
+                                      Text="Ожидайте звонок мастера"
+                                      FontSize="23"
+                                      FontFamily="{StaticResource MRegular}"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <Label x:Name="Frame5" 
+                   Text="Всё предельно просто :)" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="18"
+                   FontFamily="{StaticResource MBold}"/>
+            <Button x:Name="Frame6" 
+                    Margin="20,10,20,0"
+                    Text="Попробовать"
+                    FontFamily="{StaticResource MBold}"
+                    BackgroundColor="CornflowerBlue"
+                    Clicked="Frame6_Clicked"
+                    CornerRadius="30"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

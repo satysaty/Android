@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.WorkMastersPage"
+             Title="Мастера"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout IsVisible="{Binding ErrorVisible}" PropertyChanged="ErrorVisible_Changed">
+                <Frame x:Name="ErrorFrame" Style="{StaticResource FrameError}">
+                    <Label Style="{StaticResource LabelError}"/>
+                </Frame>
+                <Button x:Name="ButtonRetry" 
+                        Clicked="ButtonRetry_Clicked" 
+                        Style="{StaticResource ButtonError}"/>
+            </StackLayout>
+            <ActivityIndicator x:Name="ActivityIndicator"    
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               PropertyChanged="ActivityIndicator_PropertyChanged"/>
+            <StackLayout IsVisible="{Binding Content}">
+                <Frame
+                    Margin="20,20,20,20"
+                    CornerRadius="10"
+                    BackgroundColor="LightGreen">
+                    <StackLayout>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Всего мастеров: "
+                                          FontSize="14"></Span>
+                                    <Span Text="{Binding Path=Masters.Count}" 
+                                          FontSize="20"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Готовы приступить к работе прямо сейчас"
+                               FontSize="14"></Label>
+                    </StackLayout>
+                </Frame>
+                <CarouselView x:Name="walletCarousel" 
+                              HeightRequest="200"
+                              ItemsSource="{Binding Masters}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Margin="40,0,40,0"
+                                       CornerRadius="10"
+                                       BackgroundColor="LightGray">
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           TextColor="Black" />
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding WorksDone}"
+                                                 TextColor="Black"
+                                                   FontSize="13"
+                                                 VerticalOptions="Center"/>
+                                            <Label Text=" Заказов"
+                                                   FontSize="13"
+                                                   TextColor="Black"
+                                                   VerticalOptions="Center"/>
+                                            <Label Text="Рейтинг"
+                                                   Margin="20,0,0,0"
+                                                   FontSize="13"
+                                                   TextColor="Black"
+                                                   VerticalOptions="Center"/>
+                                            <Label Text="5.0"
+                                                   FontSize="13"
+                                                   TextColor="Black"
+                                                   VerticalOptions="Center"/>
+                                            <Image Source="star.png" 
+                                                   WidthRequest="19" 
+                                                   HeightRequest="19"
+                                                   VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <Image Source="{Binding Image}"
+                                               Aspect="AspectFill"
+                                               HeightRequest="80"
+                                               WidthRequest="80"
+                                               HorizontalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <IndicatorView ItemsSourceBy="walletCarousel"
+                               IndicatorColor="LightGray"
+                               SelectedIndicatorColor="Black"
+                               HorizontalOptions="Center" 
+                               Margin="0,0,0,10"/>
+                <Label FontSize="14"
+                       Margin="50,0,50,0"
+                       Text="Допускаются к работе только те мастера, которые прошли проверку документов и навыков, сдали экзамены по специальости">
+                </Label>
+
+                <Label FontSize="14"
+                       FontFamily="{StaticResource MBold}"
+                       Margin="50,15,50,0"
+                       
+                       Text="Мастера работают в форме, со своими инструментами. Во время работы не курят и не матерятся. Если нужно, подробно расскажут о том что будут делать">
+                </Label>
+
+                <Button Margin="10,10,10,20" 
+                        Text="Заказ"
+                        Clicked="Button_Clicked_1"
+                        Style="{StaticResource BlueButton}" />
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

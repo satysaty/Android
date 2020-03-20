@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Company.Views.BuyPage"
+             Title="Оформление заказа">
+    <ContentPage.Content>
+
+        <StackLayout Padding="10,0,10,0">
+            
+            <Label Text="Как с вами связаться?"           
+                   HorizontalOptions="CenterAndExpand"              
+                   FontSize="25"
+                   TextColor="Black"
+                   FontFamily="{StaticResource MBold}"
+                   Margin="0,10,0,20"/>
+            
+            <Label Text="Имя" Margin="20,0,0,0"/>
+            <Entry x:Name="Name"/>
+            <Label Text="Телефон" Margin="20,10,0,0"/>
+            <StackLayout Orientation="Horizontal" >
+                <Entry Keyboard="Telephone"
+                       Text="+380"
+                       IsReadOnly="True"/>
+                <Entry x:Name="Phone"
+                       Keyboard="Telephone"
+                       HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Button x:Name="Buy"
+                    x:FieldModifier="public"
+                    Clicked="Buy_Clicked" 
+                    Text="Быстрый заказ"
+                    Margin="0,20,0,0"
+                    Style="{StaticResource BlueButton}" />
+            <ActivityIndicator PropertyChanged="ActivityIndicator_PropertyChanged"
+                               x:Name="ActivityIndicator"
+                               VerticalOptions="CenterAndExpand"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
